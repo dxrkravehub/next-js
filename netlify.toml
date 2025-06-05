@@ -1,0 +1,16 @@
+# Netlify configuration
+[build]
+  publish = "out"
+  command = "npm run build && npm run export"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  NEXT_PUBLIC_STRAPI_URL = "your_production_strapi_url"
+  NEXT_PUBLIC_STRAPI_TOKEN = "your_production_token"

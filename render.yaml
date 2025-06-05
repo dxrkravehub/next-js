@@ -1,0 +1,17 @@
+# Render configuration
+services:
+  - type: web
+    name: education-website
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: NEXT_PUBLIC_STRAPI_URL
+        fromDatabase:
+          name: strapi-url
+          property: connectionString
+      - key: NEXT_PUBLIC_STRAPI_TOKEN
+        generateValue: true

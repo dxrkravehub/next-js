@@ -22,7 +22,6 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  // Reduce bundle size
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
